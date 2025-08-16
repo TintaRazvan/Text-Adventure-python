@@ -18,6 +18,7 @@ def which_direction(choices):
         else:
             print("I don't understand.Try again")
 
+
 def room2():
     print()
     print("You crawl through into a small space, it's quite dark")
@@ -39,30 +40,40 @@ def room6():
     print()
     print("You see a torch and other two ways you can go")
 
+def room7():
+    print()
+    print("Something scary attack you and you are be going to be food for his kids")
+
 def room9():
     print()
     print("room in progress")
 
-
+room_2=0
 welcome()
 entrance()
 #entering the world
 go=which_direction(['e','w'])
 if go == 'w':
     room2()
+    room_2=room_2+1
 elif go=='e':
     room3()
+
 #inside the room 2
-go=which_direction(['n','s','e','w'])
-if go=='w':
-    room4()
-elif go=='e':
-    room6()
-elif go=='n':
-    room9()
-elif go=='s':
-    room2()
+if room_2==1:
+    go=which_direction(['n','s','e','w'])   
+    if  go=='w':
+        room4()
+    elif go=='e':
+        room6()
+    elif go=='n':
+        room9()
+    elif go=='s':
+        entrance()
+       
+        
      
+
     
 
 
