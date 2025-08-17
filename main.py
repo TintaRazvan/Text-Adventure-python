@@ -5,7 +5,7 @@ def welcome():
 def entrance():
     print()
     print("You are entering a huge cave")
-    print("You are walking a bit and see a light with two tunnels,one one the left and the other one on the right")
+    print("You are walking a bit and see a torch and two tunnels,one one the left and the other one on the right")
 
 def which_direction(choices):
     while True:
@@ -17,6 +17,11 @@ def which_direction(choices):
             return go 
         else:
             print("I don't understand.Try again")
+
+def player_action(direction, objects):
+    c=input("What do you want to do? ")
+    (verb,noun)=c.lower().split(" ")
+    return verb, noun
 
 
 def room2():
@@ -48,29 +53,20 @@ def room9():
     print()
     print("room in progress")
 
-room_2=0
+
 welcome()
 entrance()
-#entering the world
-go=which_direction(['e','w'])
-if go == 'w':
-    room2()
-    room_2=room_2+1
-elif go=='e':
-    room3()
+(verb,noun)=player_action(['e','w'],['torch'])
 
-#inside the room 2
-if room_2==1:
-    go=which_direction(['n','s','e','w'])   
-    if  go=='w':
-        room4()
-    elif go=='e':
-        room6()
-    elif go=='n':
-        room9()
-    elif go=='s':
-        entrance()
-       
+if verb=='go':
+    if noun[0]=='n':
+        room2()
+    if noun[0]=='s':
+        room3()
+
+if verb=='take':
+    if noun=='torch':
+        print("You take torch")
         
      
 
